@@ -14,7 +14,7 @@
 // #define KB_LAYOUT_BEPO
 // #define KB_LAYOUT_BEPOLAR
 // #define KB_LAYOUT_DVORAK
-// #define KB_LAYOUT_ERGOL
+#define KB_LAYOUT_ERGOL
 // #define KB_LAYOUT_ERGLACE
 // #define KB_LAYOUT_QWERTY_INTL
 // #define KB_LAYOUT_QWERTY_LAFAYETTE
@@ -134,7 +134,7 @@
 // Uncomment the following line to enable shift as a pinky HRM.
 // Useful for combined shortcuts, but NOT MEANT to type text!
 
-// #define HRM_SHIFT
+#define HRM_SHIFT
 
 // [Experimental]
 // Uncomment the following line to enable a mod-hold behavior when holding
