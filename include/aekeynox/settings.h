@@ -90,8 +90,8 @@
 // Uncomment the following line for an improved dead key support.
 // This only applies to some Hummingbird keymaps and layout emulations.
 
-// #define ENABLE_FANCY_DEAD_KEYS
-
+#define ENABLE_FANCY_DEAD_KEYS
+#define HUMMINGBIRD
 
 /******************************************************************************
  * Hold-Taps
@@ -158,7 +158,7 @@
 // Uncomment the following line to enable shift as a pinky HRM.
 // Useful for combined shortcuts, but NOT MEANT to type text!
 
-// #define HRM_SHIFT
+#define HRM_SHIFT
 
 // [Experimental]
 // Uncomment the following line to enable a mod-hold behavior when holding
