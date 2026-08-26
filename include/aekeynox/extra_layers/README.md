@@ -22,10 +22,11 @@ When possible, it’s placed on the `SEMI` key (QWERTY’s <kbd>;:</kbd> key).
   - [Transat](#transat): Brazil, Latin America, Spain, Portugal
 - [Programmers’ QWERTY](#programmers-qwerty)
   - [Recommended](#recommended): Latvia, Poland, Romania
-  - [Not Recommended](#not-recommended): Czech Republic, Lithuania
+  - [Not Recommended](#not-recommended)
 - [Layout-Specific Adaptations](#layout-specific-adaptations)
   - [AZERTY-1dk](#azerty-1dk)
   - [Bépolar](#bépolar)
+  - [QWERTZ-cz-1dk](#qwertz-cz-1dk): Czechia
   - [Other Layouts](#other-layouts)
 - [Six-Column Configurations](#six-column-configurations)
   - [QWERTY-intl](#qwerty-intl)
@@ -204,7 +205,7 @@ When `KB_LAYOUT_*` *is* specified, the semicolon (`SEMI`) becomes a dead key:
 On these layouts, special chars are in the number row, which is a pain with
 compact keyboards:
 
-- [ ] [`KB_LAYOUT_QWERTY_CZ`]: Czech Republic
+- [ ] [`KB_LAYOUT_QWERTY_CZ`]: Czechia
 - [ ] [`KB_LAYOUT_QWERTY_LT`]: Lithuania
 
 Specific adaptations would be required.
@@ -289,6 +290,37 @@ It has been developed specifically for compact and ergonomic keyboards, and
 optimized for both French and English with a Colemak-DH approach.
 It can be [emulated by Ækeynox] on any AZERTY or QWERTY-intl host.
 
+### QWERTZ-cz-1dk
+
+- [x] [`KB_LAYOUT_QWERTZ_CZ`]: Czechia
+
+QWERTZ-cz-1dk replaces the <kbd>ů</kbd> key with <kbd>1dk</kbd>:
+
+```
+    |---------------|---------------|  base
+    |    q w e r t  |  z u i o p    |
+    |    a s d f g  |  h j k l *    |
+    |    z x c v b  |  n m , . -    |
+    |---------------|---------------|
+
+    |---------------|---------------|  1dk
+    |    € ě é ř ť  |  ž ú í ó      |
+    |    á š ď      |    ů     ˝    |
+    |    ý ß č      |  ň            |
+    |---------------|---------------|
+
+    |---------------|---------------|  1dkShift
+    |      Ě É Ř Ť  |  Ž Ú Í Ó      |
+    |    Á Š Ď      |    Ů     ˝    |
+    |    Ý § Č      |  Ň            |
+    |---------------|---------------|
+```
+
+- 1dk is a dead acute accent on vowels (á, é, í, ó, ú, ý)
+- 1dk is a dead caron/háček on consonants (č, ď, ň, ř, š, ť, ž)
+- 1dk is a dead ring below U (ů)
+- exception: ě (caron/háček) left to E
+
 ### Other Layouts
 
 Many other national layouts are still missing, among which:
@@ -298,7 +330,6 @@ Many other national layouts are still missing, among which:
 - [ ] [`KB_LAYOUT_QWERTY_LT`]: Lithuania
 - [ ] [`KB_LAYOUT_QWERTY_NL`]: Netherlands
 - [ ] [`KB_LAYOUT_QWERTY_TR`]: Turkey
-- [ ] [`KB_LAYOUT_QWERTZ_CZ`]: Czech Republic
 - [ ] [`KB_LAYOUT_QWERTZ_HU`]: Hungary
 - [ ] [`KB_LAYOUT_QWERTZ_SK`]: Slovakia
 

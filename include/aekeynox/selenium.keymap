@@ -152,7 +152,7 @@
   #include "emulations/qwerty_lafayette.dtsi"
 
 // Experimental Ergol variant for Hummingbird-style keyboards
-#elif defined KB_LAYOUT_ERGOL && defined HUMMINGBIRD
+#elif defined KB_LAYOUT_ERGOL && defined ENABLE_HUMMINGBIRD_MODE
   #include "extra_layers/ergol_hummingbird.dtsi"
 
 // Some layouts require extra layers to fit on a 3×10 grid
@@ -161,6 +161,8 @@
     #include "extra_layers/azerty_1dk.dtsi"
   #elif defined KB_LAYOUT_BEPO
     #include "extra_layers/bepolar.dtsi"
+  #elif defined KB_LAYOUT_QWERTZ_CZ
+    #include "extra_layers/qwertz_cz_1dk.dtsi"
   #elif defined KB_EXTRA_LAYERS_ALTGR
     #include "extra_layers/altgr_1dk.dtsi" // default for LV, PL, RO
   #elif defined KB_EXTRA_LAYERS_NORDIC

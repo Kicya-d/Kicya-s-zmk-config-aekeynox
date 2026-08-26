@@ -2,7 +2,7 @@
  * Acute Accent
  */
 
-#if (defined DEAD_ACUTE) && DEAD_ACUTE
+#ifdef DEAD_ACUTE
   #define DI_ACU &digraph DEAD_ACUTE
   #define DK_ACU &kp DEAD_ACUTE
 #else
@@ -90,7 +90,7 @@
  */
 
 // grave accent
-#if (defined DEAD_GRAVE) && DEAD_GRAVE
+#ifdef DEAD_GRAVE
   #define DI_GRV &digraph DEAD_GRAVE
   #define DK_GRV &kp DEAD_GRAVE
 #else
@@ -171,7 +171,7 @@
  * Circumflex Accent
  */
 
-#if (defined DEAD_CIRCUMFLEX) && DEAD_CIRCUMFLEX
+#ifdef DEAD_CIRCUMFLEX
   #define DI_CIR &digraph DEAD_CIRCUMFLEX
   #define DK_CIR &kp DEAD_CIRCUMFLEX
 #else
@@ -252,7 +252,7 @@
  * Diaeresis
  */
 
-#if (defined DEAD_DIAERESIS) && DEAD_DIAERESIS
+#ifdef DEAD_DIAERESIS
   #define DI_DIA &digraph DEAD_DIAERESIS
   #define DK_DIA &kp DEAD_DIAERESIS
 #else
@@ -339,7 +339,7 @@
  * Tilde
  */
 
-#if (defined DEAD_TILDE) && DEAD_TILDE
+#ifdef DEAD_TILDE
   #define DI_TLD &digraph DEAD_TILDE
   #define DK_TLD &kp DEAD_TILDE
 #else
@@ -414,7 +414,7 @@
  * Cedilla
  */
 
-#if (defined DEAD_CEDILLA) && DEAD_CEDILLA
+#ifdef DEAD_CEDILLA
   #define DI_CDL &digraph DEAD_CEDILLA
   #define DK_CDL &kp DEAD_CEDILLA
 #else
@@ -441,7 +441,7 @@
  * Caron
  */
 
-#if (defined DEAD_CARON) && DEAD_CARON
+#ifdef DEAD_CARON
   #define DI_CAR &digraph DEAD_CARON
   #define DK_CAR &kp DEAD_CARON
 #else
@@ -463,11 +463,47 @@
   #endif
 #endif
 
+#ifndef  C_CCAR
+#define  C_CCAR DI_CAR C
+#endif
+#ifndef SC_CCAR
+#define SC_CCAR DI_CAR RS(C)
+#endif
+#ifndef  C_DCAR
+#define  C_DCAR DI_CAR D
+#endif
+#ifndef SC_DCAR
+#define SC_DCAR DI_CAR RS(D)
+#endif
+#ifndef  C_ECAR
+#define  C_ECAR DI_CAR E
+#endif
+#ifndef SC_ECAR
+#define SC_ECAR DI_CAR RS(E)
+#endif
+#ifndef  C_NCAR
+#define  C_NCAR DI_CAR N
+#endif
+#ifndef SC_NCAR
+#define SC_NCAR DI_CAR RS(N)
+#endif
+#ifndef  C_RCAR
+#define  C_RCAR DI_CAR R
+#endif
+#ifndef SC_RCAR
+#define SC_RCAR DI_CAR RS(R)
+#endif
 #ifndef  C_SCAR
 #define  C_SCAR DI_CAR S
 #endif
 #ifndef SC_SCAR
 #define SC_SCAR DI_CAR RS(S)
+#endif
+#ifndef  C_TCAR
+#define  C_TCAR DI_CAR T
+#endif
+#ifndef SC_TCAR
+#define SC_TCAR DI_CAR RS(T)
 #endif
 #ifndef  C_ZCAR
 #define  C_ZCAR DI_CAR Z
@@ -480,7 +516,7 @@
  * Ring Above
  */
 
-#if (defined DEAD_ABOVE_RING) && DEAD_ABOVE_RING
+#ifdef DEAD_ABOVE_RING
   #define DI_RNG &digraph DEAD_ABOVE_RING
   #define DK_RNG &kp DEAD_ABOVE_RING
 #else
@@ -501,4 +537,10 @@
 #endif
 #ifndef SC_ARNG
 #define SC_ARNG DI_RNG RS(A)
+#endif
+#ifndef  C_URNG
+#define  C_URNG DI_RNG U
+#endif
+#ifndef SC_URNG
+#define SC_URNG DI_RNG RS(U)
 #endif

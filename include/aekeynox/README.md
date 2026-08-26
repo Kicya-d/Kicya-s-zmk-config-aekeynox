@@ -51,3 +51,71 @@ when the host computer is configured for a different keyboard layout.
 This file allows low-level customization.
 
 See the [customizing ZMK](https://zmk.dev/docs/customization) documentation.
+
+
+Debugging
+----------------------------------------------------------------------------------------------------
+
+When working on keymap files, especially on aliases and extra layers, many errors can be caught by
+the preprocessor if ZMK is installed locally. Here’s a quick how-to:
+
+1. start from this directory
+2. symlink `selenium.keymap` to `selenium.c`
+3. use `clang -E` on `selenium.c`
+4. examine the output
+
+Examples:
+
+```sh
+# create the symlink
+ln -s selenium.keymap selenium.c
+
+# check the output with the default options
+clang -E selenium.c -I/path/to/zmk
+
+# check the output for QWERTZ-de
+clang -E selenium.c -I/path/to/zmk -DKB_LAYOUT_QWERTZ_DE
+
+# check the output for QWERTY-intl on Linux
+clang -E selenium.c -I/path/to/zmk -DKB_LAYOUT_QWERTY_INTL -DLINUX
+```
+
+> [!NOTE]
+> Remember that any setting you tweaked will *stay active* when running this commmand,
+> so don’t forget to comment them out, or add the `-DCI_IGNORE_USER_SETTINGS` flag (to
+> ignore all of them) if they hinder you.
+
+The output details all layers that will be built by ZMK, after one
+preprocessing pass. Seeing one of your own macros in this output means it
+wasn’t defined properly and thus wasn’t swapped out by the preprocessor. In
+case this happens, there’s no point sending it to the GHA, you’ll just get an error
+
+Common mistakes when dealing with the preprocessor include (but are not limited to):
+
+- typos
+- missing header file(s)
+- macros being used before being defined
+- missing definition in a conditional compilation branch (`#if`, `#ifdef`…)
+- comparing things more complex than integers (yes, it’s *that* primitive)
+
+As simple as this trick may seem, it makes it a **LOT** easier and faster to
+find errors reported by the GHA outputs. To that end, here are some of the most
+common errors you may encounter and what they mean:
+
+- `expected number or parenthesized expression`<br>
+  a key/layer/modifier/macro is  missing or ill-defined
+  (check that you or a macro didn’t accidentally add an extra `&`)
+  
+- `<Node … in …/empty_file.c> lacks #binding-cells`<br>
+  a behavior in a `bindings` property has too few parameters
+  
+- `binding controller <Node <behavior> in …/empty_file.c> lacks binding`<br>
+  the `compatible` field in the declaration of `behavior` is missing or incorrect
+  
+- `'DT_N_S_keymap_S_<layer_name>_P_bindings_IDX_<n>_PH_FULL_NAME' undeclared here`<br>
+  same as the first one, but caught later in the compilation and much more precise,
+  as it tells you the issue resides with the `n`th key of `layer_name`
+
+- some seemingly unrelated piece of code fails to compile:<br>
+  we probably messed up — if that happens,
+  please open a bug report with your settings and the error logs.

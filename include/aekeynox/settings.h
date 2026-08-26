@@ -30,9 +30,10 @@
 // #define KB_LAYOUT_QWERTY_PT         // Portugal
 // #define KB_LAYOUT_QWERTY_RO         // Romania (Programmers)
 // #define KB_LAYOUT_QWERTY_SE         // Sweden, Finland
-// #define KB_LAYOUT_QWERTZ_DE         // Germany, Austria
 // #define KB_LAYOUT_QWERTZ_CH_DE      // Switzerland (German)
 // #define KB_LAYOUT_QWERTZ_CH_FR      // Switzerland (French)
+// #define KB_LAYOUT_QWERTZ_CZ         // Czechia
+// #define KB_LAYOUT_QWERTZ_DE         // Germany, Austria
 
 // Some keyboard layouts and shortcuts may vary between Windows / macOS / Linux.
 // Uncomment one of the following lines if the host computer doen't run Windows.
@@ -171,3 +172,13 @@
 // Beware: this increases the typing load of the left thumb.
 
 // #define LEFT_HAND_SPACE
+
+// [Experimental]
+// Uncomment the following line to enable a hummingbird-style adaptation of
+// your keyboard layout. Keys that are originally on the ZBN/ QWERTY-positions
+// will be duplicated on a 1dk layer. This reduces the number of keys required to
+// write texts, and thus limits finger movement (at the cost of a couple of extra
+// keystrokes). The adaptations are layout-specific; as of today, only Ergol is
+// supported.
+
+// #define ENABLE_HUMMINGBIRD_MODE
