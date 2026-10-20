@@ -58,6 +58,7 @@
   #define H4 kp
 #endif
 
+
 /**
  * Thumb Keys
  */
@@ -150,13 +151,28 @@
   #define RTHUMB_REACH  &MHSC SYMBOLS_LAYER ENTER
   #define RTHUMB_HOME   RTHUMB_S34
   #define RTHUMB_TUCK   RTHUMB_REACH
+#elifdef HT_ARSENIK
+  #define LTHUMB_TUCK   &mt LSHIFT BACKSPACE
+  #define LTHUMB_HOME   &none
+  #define LTHUMB_REACH  &none
+  #define RTHUMB_REACH  &none
+  #define RTHUMB_HOME   &MHLT NAV_LAYER SPACE
+  #define RTHUMB_TUCK   &sc SYMBOLS_LAYER ENTER
 #endif
 
-// nav_num layer thumb cluster
-#ifdef HT_TWO_THUMB_KEYS
-  #define NAV_LTHUMB_TUCK   &kp LS(TAB)
+// nav layers' thumb keys
+#ifdef HT_ARSENIK
+  #define NAV_LTHUMB_TUCK  &mt LSHIFT DEL
+  #define VIM_LTHUMB_TUCK  NAV_LTHUMB_TUCK
+  #define NAV_RTHUMB_TUCK  &mo FN_MEDIA_LAYER
+#elifdef HT_TWO_THUMB_KEYS
+  #define NAV_LTHUMB_TUCK  &kp LS(TAB)
+  #define VIM_LTHUMB_TUCK  &mt LSHIFT CAPSLOCK
+  #define NAV_RTHUMB_TUCK  &EZ_LSK(RALT)
 #else
-  #define NAV_LTHUMB_TUCK   &mt LSHIFT CAPSLOCK
+  #define NAV_LTHUMB_TUCK  &mt LSHIFT CAPSLOCK
+  #define VIM_LTHUMB_TUCK  NAV_LTHUMB_TUCK
+  #define NAV_RTHUMB_TUCK  &EZ_LSK(RALT)
 #endif
 
 
